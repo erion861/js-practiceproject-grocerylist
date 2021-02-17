@@ -3,7 +3,6 @@
 const input = document.getElementById('additem-input');
 const submit = document.getElementById('add');
 const clearList = document.getElementById('delete-all');
-// const clearItem = document.getElementById('delete');
 
 // FUNCTIONS
 
@@ -15,17 +14,19 @@ function createItem() {
     <button class="delete">Remove Item</button>`;
   newItem.style.display = 'flex';
   document.querySelector('.grocery-list').appendChild(newItem);
+  const newButton = newItem.querySelector('.delete');
+  newButton.addEventListener('click', removeItem);
 };
 
 function removeItem(event) {
-  const removeBtn = event.target;
-  if(removeBtn.classList.contains('delete')){
-    let item = document.querySelector('.grocery-list');
-    console.log(item);
-    if (item.parentNode) {
-      item.removeChild(item.lastElementChild);
-    };
-  };
+  newButton = event.target;
+  event.target.parentElement.remove();
+  // if(removeBtn.classList.contains('delete')){
+  //   let item = document.querySelector('.grocery-list_item');
+  //   console.log(item);
+  //   console.log(item.parentNode);
+  //   item.parentElement.remove();
+  // };
 };
 
 function removeAllItems() {
@@ -39,4 +40,4 @@ function removeAllItems() {
 
 submit.addEventListener('click', createItem);
 clearList.addEventListener('click', removeAllItems);
-document.addEventListener('click', removeItem);
+// document.addEventListener('click', removeItem);
