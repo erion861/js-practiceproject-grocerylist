@@ -21,12 +21,6 @@ function createItem() {
 function removeItem(event) {
   newButton = event.target;
   event.target.parentElement.remove();
-  // if(removeBtn.classList.contains('delete')){
-  //   let item = document.querySelector('.grocery-list_item');
-  //   console.log(item);
-  //   console.log(item.parentNode);
-  //   item.parentElement.remove();
-  // };
 };
 
 function removeAllItems() {
@@ -40,4 +34,3 @@ function removeAllItems() {
 
 submit.addEventListener('click', createItem);
 clearList.addEventListener('click', removeAllItems);
-// document.addEventListener('click', removeItem);
